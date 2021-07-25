@@ -282,499 +282,497 @@ export const schema = {
             {
               'type': 'operation',
               'label': '操作',
-              'width': '2.5cm',
-              'buttons': [
-                {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '课程详情',
-                  'dialog': {
-                    'title': '课程详情-$title',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习科目：$subject'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '年级：$grade'
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '课时费：$userFee'
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '课时薪酬：$teacherFee'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '备注'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$remark'
-                        },
-                      ]
-                    }
-                  }
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-user-plus',
-                  'actionType': 'dialog',
-                  'tooltip': '投递列表',
-                  'dialog': {
-                    'title': '投递列表',
-                    'actions': '',
-                    'name': 'dialog1',
-                    'body': [
+              'width': '4.5cm',
+              'buttons':
+                [
+                  {
+                    'type': 'button-group',
+                    "buttons": [
                       {
-                        'type': 'crud',
-                        'api': 'GET /api/backendManage/course/tutor/getCoursTeacher/$cid',
-                        'loadDataOnce': true,
-                        'columns': [
-                          {
-                            'name': 'tid',
-                            'label': '教师Id',
-                          },
-                          {
-                            'name': 'name',
-                            'label': '姓名',
-                          },
-                          {
-                            'name': 'phoneNumber',
-                            'label': '手机号码',
-                          },
-                          {
-                            'type': 'operation',
-                            'label': '操作',
-                            'width': '',
-                            'buttons': [
+                        'type': 'button',
+                        'label': '详情',
+                        'actionType': 'dialog',
+                        'dialog': {
+                          'title': '课程详情-$title',
+                          'actions': '',
+                          'body': {
+                            'type': 'page',
+                            'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
+                            'loadDataOnce': true,
+                            'body': [
                               {
-                                'type': 'button',
-                                'label': '',
-                                'icon': 'fa fa-id-card-o',
-                                'actionType': 'dialog',
-                                'tooltip': '查看简历',
-                                'dialog': {
-                                  'actions': '',
-                                  'title': '$name的简历',
-                                  'body': {
-                                    'type': 'page',
-                                    'initApi': 'GET /api/backendManage/course/tutor/getTeacherResume/$tid',
-                                    'body': [
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '姓名'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$name'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '性别'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$sex'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '民族'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$nation'
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '邮箱',
-                                            'md': 2,
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$email',
-                                            'md': 5,
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '电话',
-                                            'md': 2,
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$phoneNumber',
-                                            'md': 3,
-                                          },
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '擅长科目',
-                                            'md': 3
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$goodSubjects',
-                                            'md': 9
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '兴趣爱好',
-                                            'md': 3
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$hobby',
-                                            'md': 9
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '学校：$school',
-                                            'md': 4
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '专业：$major',
-                                            'md': 5
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '年级：$grade',
-                                            'md': 3
-                                          },
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'plain',
-                                        'text': '所获荣誉'
-                                      },
-                                      '<p />',
-                                      {
-                                        'type': 'plain',
-                                        'text': '$honours'
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'plain',
-                                        'text': '教学经历'
-                                      },
-                                      '<p />',
-                                      {
-                                        'type': 'plain',
-                                        'text': '$teachExperience'
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'plain',
-                                        'text': '自我评价'
-                                      },
-                                      '<p />',
-                                      {
-                                        'type': 'plain',
-                                        'text': '$selfEvaluation'
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'plain',
-                                        'text': '空闲时间'
-                                      },
-                                      '<p />',
-                                      {
-                                        'type': 'plain',
-                                        'text': '$freeTime'
-                                      }
-                                    ]
+                                'type': 'grid',
+                                'columns': [
+                                  {
+                                    'type': 'plain',
+                                    'text': '补习科目：$subject'
                                   }
-                                }
+                                ]
                               },
                               {
-                                'type': 'button',
-                                'label': '',
-                                'tooltip': '选中',
-                                'icon': 'fa fa-check text-success',
-                                'actionType': 'ajax',
-                                'confirmText': '确定选择教员 【 $name 】 试讲课程 【 $title 】 ？',
-                                'api': '/api/backendManage/course/tutor/assignTeacher/$cid/$tid',
-                                'reload': 'crud1',
-                                'close': 'dialog1'
-                              }
-                            ],
-                            'placeholder': '-',
-                            'fixed': 'right'
+                                'type': 'divider'
+                              },
+                              {
+                                'type': 'grid',
+                                'columns': [
+                                  {
+                                    'type': 'plain',
+                                    'text': '年级：$grade'
+                                  },
+                                  {
+                                    'type': 'plain',
+                                    'text': '课时费：$userFee'
+                                  },
+                                  {
+                                    'type': 'plain',
+                                    'text': '课时薪酬：$teacherFee'
+                                  }
+                                ]
+                              },
+                              {
+                                'type': 'divider',
+                              },
+                              {
+                                'type': 'grid',
+                                'columns': [
+                                  {
+                                    'type': 'plain',
+                                    'text': '补习时间',
+                                    'md': 3
+                                  },
+                                  {
+                                    'type': 'plain',
+                                    'text': '$courseTime',
+                                    'md': 9
+                                  }
+                                ]
+                              },
+                              {
+                                'type': 'divider',
+                              },
+                              {
+                                'type': 'grid',
+                                'columns': [
+                                  {
+                                    'type': 'plain',
+                                    'text': '补习地点',
+                                    'md': 3
+                                  },
+                                  {
+                                    'type': 'plain',
+                                    'text': '$coursePlace',
+                                    'md': 9
+                                  }
+                                ]
+                              },
+                              {
+                                'type': 'divider',
+                                'lineStyle': 'solid'
+                              },
+                              {
+                                'type': 'plain',
+                                'text': '备注'
+                              },
+                              '<p/>'
+                              ,
+                              {
+                                'type': 'plain',
+                                'text': '$remark'
+                              },
+                            ]
                           }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  'type': 'button',
-                  'actionType': 'dialog',
-                  'label': '',
-                  'icon': 'fa fa-pencil',
-                  'tooltip': '修改课程',
-                  'dialog': {
-                    'title': '修改课程',
-                    'body': {
-                      'type': 'form',
-                      'name': 'sample-edit-form',
-                      'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
-                      'api': 'POST /api/backendManage/course/tutor/updateCourse/$cid',
-                      'controls': [
-                        {
-                          'type': 'group',
-                          'controls': [
+                        }
+                      },
+                      {
+                        'type': 'button',
+                        'label': '投递列表',
+                        'actionType': 'dialog',
+                        'dialog': {
+                          'title': '投递列表',
+                          'actions': '',
+                          'name': 'dialog1',
+                          'body': [
                             {
-                              'type': 'text',
-                              'name': 'title',
-                              'label': '课程标题',
-                              'required': true
-                            },
-                            {
-                              'type': 'number',
-                              'name': 'hours',
-                              'label': '课时数',
-                              'required': true
-                            },
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'number',
-                              'name': 'userFee',
-                              'label': '课时费',
-                              'required': true
-                            },
-                            {
-                              'type': 'number',
-                              'name': 'teacherFee',
-                              'label': '课时薪酬',
-                              'required': true
-                            },
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'select',
-                              'name': 'subject',
-                              'label': '补习科目',
-                              'required': true,
-                              "multiple": true,
-                              'options': [
+                              'type': 'crud',
+                              'api': 'GET /api/backendManage/course/tutor/getCoursTeacher/$cid',
+                              'loadDataOnce': true,
+                              'columns': [
                                 {
-                                  'label': '语文',
-                                  'value': '语文'
+                                  'name': 'tid',
+                                  'label': '教师Id',
                                 },
                                 {
-                                  'label': '数学',
-                                  'value': '数学'
+                                  'name': 'name',
+                                  'label': '姓名',
                                 },
                                 {
-                                  'label': '英语',
-                                  'value': '英语'
+                                  'name': 'phoneNumber',
+                                  'label': '手机号码',
                                 },
                                 {
-                                  'label': '物理',
-                                  'value': '物理'
-                                },
-                                {
-                                  'label': '化学',
-                                  'value': '化学'
-                                },
-                                {
-                                  'label': '生物',
-                                  'value': '生物'
-                                },
-                                {
-                                  'label': '政治',
-                                  'value': '政治'
-                                },
-                                {
-                                  'label': '历史',
-                                  'value': '历史'
-                                },
-                                {
-                                  'label': '地理',
-                                  'value': '地理'
+                                  'type': 'operation',
+                                  'label': '操作',
+                                  'width': '',
+                                  'buttons': [
+                                    {
+                                      'type': 'button',
+                                      'label': '',
+                                      'icon': 'fa fa-id-card-o',
+                                      'actionType': 'dialog',
+                                      'tooltip': '查看简历',
+                                      'dialog': {
+                                        'actions': '',
+                                        'title': '$name的简历',
+                                        'body': {
+                                          'type': 'page',
+                                          'initApi': 'GET /api/backendManage/course/tutor/getTeacherResume/$tid',
+                                          'body': [
+                                            {
+                                              'type': 'grid',
+                                              'columns': [
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '姓名'
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '$name'
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '性别'
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '$sex'
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '民族'
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '$nation'
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              'type': 'divider'
+                                            },
+                                            {
+                                              'type': 'grid',
+                                              'columns': [
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '邮箱',
+                                                  'md': 2,
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '$email',
+                                                  'md': 5,
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '电话',
+                                                  'md': 2,
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '$phoneNumber',
+                                                  'md': 3,
+                                                },
+                                              ]
+                                            },
+                                            {
+                                              'type': 'divider'
+                                            },
+                                            {
+                                              'type': 'grid',
+                                              'columns': [
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '擅长科目',
+                                                  'md': 3
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '$goodSubjects',
+                                                  'md': 9
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              'type': 'divider'
+                                            },
+                                            {
+                                              'type': 'grid',
+                                              'columns': [
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '兴趣爱好',
+                                                  'md': 3
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '$hobby',
+                                                  'md': 9
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              'type': 'divider'
+                                            },
+                                            {
+                                              'type': 'grid',
+                                              'columns': [
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '学校：$school',
+                                                  'md': 4
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '专业：$major',
+                                                  'md': 5
+                                                },
+                                                {
+                                                  'type': 'plain',
+                                                  'text': '年级：$grade',
+                                                  'md': 3
+                                                },
+                                              ]
+                                            },
+                                            {
+                                              'type': 'divider'
+                                            },
+                                            {
+                                              'type': 'plain',
+                                              'text': '所获荣誉'
+                                            },
+                                            '<p />',
+                                            {
+                                              'type': 'plain',
+                                              'text': '$honours'
+                                            },
+                                            {
+                                              'type': 'divider'
+                                            },
+                                            {
+                                              'type': 'plain',
+                                              'text': '教学经历'
+                                            },
+                                            '<p />',
+                                            {
+                                              'type': 'plain',
+                                              'text': '$teachExperience'
+                                            },
+                                            {
+                                              'type': 'divider'
+                                            },
+                                            {
+                                              'type': 'plain',
+                                              'text': '自我评价'
+                                            },
+                                            '<p />',
+                                            {
+                                              'type': 'plain',
+                                              'text': '$selfEvaluation'
+                                            },
+                                            {
+                                              'type': 'divider'
+                                            },
+                                            {
+                                              'type': 'plain',
+                                              'text': '空闲时间'
+                                            },
+                                            '<p />',
+                                            {
+                                              'type': 'plain',
+                                              'text': '$freeTime'
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    {
+                                      'type': 'button',
+                                      'label': '',
+                                      'tooltip': '选中',
+                                      'icon': 'fa fa-check text-success',
+                                      'actionType': 'ajax',
+                                      'confirmText': '确定选择教员 【 $name 】 试讲课程 【 $title 】 ？',
+                                      'api': '/api/backendManage/course/tutor/assignTeacher/$cid/$tid',
+                                      'reload': 'crud1',
+                                      'close': 'dialog1'
+                                    }
+                                  ],
+                                  'placeholder': '-',
+                                  'fixed': 'right'
                                 }
                               ]
                             }
                           ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'text',
-                              'name': 'grade',
-                              'label': '补习年级',
-                              'required': true,
-                              'clearable': true
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'text',
-                              'name': 'courseTime',
-                              'label': '补习时间',
-                              'required': true,
-                              'clearable': true
-                            },
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'text',
-                              'name': 'coursePlace',
-                              'label': '补习地点',
-                              'required': true,
-                              'clearable': true
-                            },
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'textarea',
-                              'name': 'remark',
-                              'label': '备注'
-                            },
-                          ]
                         }
-                      ]
-                    }
+                      },
+                      {
+                        'type': 'button',
+                        'actionType': 'dialog',
+                        'label': '修改',
+                        'dialog': {
+                          'title': '修改课程',
+                          'body': {
+                            'type': 'form',
+                            'name': 'sample-edit-form',
+                            'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
+                            'api': 'POST /api/backendManage/course/tutor/updateCourse/$cid',
+                            'controls': [
+                              {
+                                'type': 'group',
+                                'controls': [
+                                  {
+                                    'type': 'text',
+                                    'name': 'title',
+                                    'label': '课程标题',
+                                    'required': true
+                                  },
+                                  {
+                                    'type': 'number',
+                                    'name': 'hours',
+                                    'label': '课时数',
+                                    'required': true
+                                  },
+                                ]
+                              },
+                              {
+                                'type': 'group',
+                                'controls': [
+                                  {
+                                    'type': 'number',
+                                    'name': 'userFee',
+                                    'label': '课时费',
+                                    'required': true
+                                  },
+                                  {
+                                    'type': 'number',
+                                    'name': 'teacherFee',
+                                    'label': '课时薪酬',
+                                    'required': true
+                                  },
+                                ]
+                              },
+                              {
+                                'type': 'group',
+                                'controls': [
+                                  {
+                                    'type': 'select',
+                                    'name': 'subject',
+                                    'label': '补习科目',
+                                    'required': true,
+                                    "multiple": true,
+                                    'options': [
+                                      {
+                                        'label': '语文',
+                                        'value': '语文'
+                                      },
+                                      {
+                                        'label': '数学',
+                                        'value': '数学'
+                                      },
+                                      {
+                                        'label': '英语',
+                                        'value': '英语'
+                                      },
+                                      {
+                                        'label': '物理',
+                                        'value': '物理'
+                                      },
+                                      {
+                                        'label': '化学',
+                                        'value': '化学'
+                                      },
+                                      {
+                                        'label': '生物',
+                                        'value': '生物'
+                                      },
+                                      {
+                                        'label': '政治',
+                                        'value': '政治'
+                                      },
+                                      {
+                                        'label': '历史',
+                                        'value': '历史'
+                                      },
+                                      {
+                                        'label': '地理',
+                                        'value': '地理'
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                'type': 'group',
+                                'controls': [
+                                  {
+                                    'type': 'text',
+                                    'name': 'grade',
+                                    'label': '补习年级',
+                                    'required': true,
+                                    'clearable': true
+                                  }
+                                ]
+                              },
+                              {
+                                'type': 'group',
+                                'controls': [
+                                  {
+                                    'type': 'text',
+                                    'name': 'courseTime',
+                                    'label': '补习时间',
+                                    'required': true,
+                                    'clearable': true
+                                  },
+                                ]
+                              },
+                              {
+                                'type': 'group',
+                                'controls': [
+                                  {
+                                    'type': 'text',
+                                    'name': 'coursePlace',
+                                    'label': '补习地点',
+                                    'required': true,
+                                    'clearable': true
+                                  },
+                                ]
+                              },
+                              {
+                                'type': 'group',
+                                'controls': [
+                                  {
+                                    'type': 'textarea',
+                                    'name': 'remark',
+                                    'label': '备注'
+                                  },
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        'type': 'button',
+                        'label': '删除',
+                        'level': 'danger',
+                        'actionType': 'ajax',
+                        'confirmText': '确定要删除课程 【$title】？(删除后可从“已删除”恢复)',
+                        'api': 'POST /api/backendManage/course/tutor/deleteCourse/$cid'
+                      }
+                    ]
                   }
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'tooltip': '删除',
-                  'icon': 'fa fa-trash text-danger',
-                  'actionType': 'ajax',
-                  'confirmText': '确定要删除课程 【$title】？(删除后可从“已删除”恢复)',
-                  'api': 'POST /api/backendManage/course/tutor/deleteCourse/$cid'
-                }
-              ],
-              'placeholder': '-',
-              'fixed': 'right'
+                ]
+
             }
           ]
 
@@ -837,505 +835,505 @@ export const schema = {
               'label': '课时数'
             },
             {
+              'name': 'teacherCount',
+              'label': '投递人数',
+            },
+            {
               'name': 'createTime',
               'label': '创建时间'
             },
             {
               'type': 'operation',
               'label': '操作',
-              'width': '2.5cm',
+              'width': '4.5cm',
               'buttons': [
                 {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '课程详情',
-                  'dialog': {
-                    'title': '课程详情-$title',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
+                  'type': 'button-group',
+                  'buttons': [
+                    {
+                      'type': 'button',
+                      'label': '详情',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'title': '课程详情-$title',
+                        'actions': '',
+                        'body': {
+                          'type': 'page',
+                          'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
+                          'loadDataOnce': true,
+                          'body': [
                             {
-                              'type': 'plain',
-                              'text': '补习科目：$subject'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '年级：$grade'
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '课时费：$userFee'
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '课时薪酬：$teacherFee'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '备注'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$remark'
-                        },
-                      ]
-                    }
-                  }
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-user-plus',
-                  'actionType': 'dialog',
-                  'tooltip': '投递列表',
-                  'dialog': {
-                    'title': '投递列表',
-                    'actions': '',
-                    'name': 'dialog2',
-                    'body': [
-                      {
-                        'type': 'crud',
-                        'api': 'GET /api/backendManage/course/tutor/getCoursTeacher/$cid',
-                        'loadDataOnce': true,
-                        'columns': [
-                          {
-                            'name': 'tid',
-                            'label': '教师Id',
-                          },
-                          {
-                            'name': 'name',
-                            'label': '姓名',
-                          },
-                          {
-                            'name': 'phoneNumber',
-                            'label': '手机号码',
-                          },
-                          {
-                            'type': 'operation',
-                            'label': '操作',
-                            'width': '',
-                            'buttons': [
-                              {
-                                'type': 'button',
-                                'label': '',
-                                'icon': 'fa fa-id-card-o',
-                                'actionType': 'dialog',
-                                'tooltip': '查看简历',
-                                'dialog': {
-                                  'actions': '',
-                                  'title': '$name的简历',
-                                  'body': {
-                                    'type': 'page',
-                                    'initApi': 'GET /api/backendManage/course/tutor/getTeacherResume/$tid',
-                                    'body': [
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '姓名'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$name'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '性别'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$sex'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '民族'
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$nation'
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '邮箱',
-                                            'md': 2,
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$email',
-                                            'md': 5,
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '电话',
-                                            'md': 2,
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$phoneNumber',
-                                            'md': 3,
-                                          },
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '擅长科目',
-                                            'md': 3
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$goodSubjects',
-                                            'md': 9
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '兴趣爱好',
-                                            'md': 3
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '$hobby',
-                                            'md': 9
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'grid',
-                                        'columns': [
-                                          {
-                                            'type': 'plain',
-                                            'text': '学校：$school',
-                                            'md': 4
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '专业：$major',
-                                            'md': 5
-                                          },
-                                          {
-                                            'type': 'plain',
-                                            'text': '年级：$grade',
-                                            'md': 3
-                                          },
-                                        ]
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'plain',
-                                        'text': '所获荣誉'
-                                      },
-                                      '<p />',
-                                      {
-                                        'type': 'plain',
-                                        'text': '$honours'
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'plain',
-                                        'text': '教学经历'
-                                      },
-                                      '<p />',
-                                      {
-                                        'type': 'plain',
-                                        'text': '$teachExperience'
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'plain',
-                                        'text': '自我评价'
-                                      },
-                                      '<p />',
-                                      {
-                                        'type': 'plain',
-                                        'text': '$selfEvaluation'
-                                      },
-                                      {
-                                        'type': 'divider'
-                                      },
-                                      {
-                                        'type': 'plain',
-                                        'text': '空闲时间'
-                                      },
-                                      '<p />',
-                                      {
-                                        'type': 'plain',
-                                        'text': '$freeTime'
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                'type': 'button',
-                                'label': '',
-                                'tooltip': '选中',
-                                'icon': 'fa fa-check text-success',
-                                'actionType': 'ajax',
-                                'confirmText': '确定选择教员 【 $name 】 试讲课程 【 $title 】 ？',
-                                'api': '/api/backendManage/course/tutor/assignTeacher/$cid/$tid',
-                                'reload': 'crud2',
-                                'close': 'dialog2'
-                              }
-                            ],
-                            'placeholder': '-',
-                            'fixed': 'right'
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  'type': 'button',
-                  'actionType': 'dialog',
-                  'label': '',
-                  'icon': 'fa fa-pencil',
-                  'tooltip': '修改课程',
-                  'dialog': {
-                    'title': '修改课程',
-                    'body': {
-                      'type': 'form',
-                      'name': 'sample-edit-form',
-                      'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
-                      'api': 'POST /api/backendManage/course/tutor/updateCourse/$cid',
-                      'controls': [
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'text',
-                              'name': 'title',
-                              'label': '课程标题',
-                              'required': true
-                            },
-                            {
-                              'type': 'number',
-                              'name': 'hours',
-                              'label': '课时数',
-                              'required': true
-                            },
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'number',
-                              'name': 'userFee',
-                              'label': '课时费',
-                              'required': true
-                            },
-                            {
-                              'type': 'number',
-                              'name': 'teacherFee',
-                              'label': '课时薪酬',
-                              'required': true
-                            },
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'select',
-                              'name': 'subject',
-                              'label': '补习科目',
-                              'required': true,
-                              "multiple": true,
-                              'options': [
+                              'type': 'grid',
+                              'columns': [
                                 {
-                                  'label': '语文',
-                                  'value': '语文'
-                                },
-                                {
-                                  'label': '数学',
-                                  'value': '数学'
-                                },
-                                {
-                                  'label': '英语',
-                                  'value': '英语'
-                                },
-                                {
-                                  'label': '物理',
-                                  'value': '物理'
-                                },
-                                {
-                                  'label': '化学',
-                                  'value': '化学'
-                                },
-                                {
-                                  'label': '生物',
-                                  'value': '生物'
-                                },
-                                {
-                                  'label': '政治',
-                                  'value': '政治'
-                                },
-                                {
-                                  'label': '历史',
-                                  'value': '历史'
-                                },
-                                {
-                                  'label': '地理',
-                                  'value': '地理'
+                                  'type': 'plain',
+                                  'text': '补习科目：$subject'
                                 }
                               ]
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'text',
-                              'name': 'grade',
-                              'label': '补习年级',
-                              'required': true,
-                              'clearable': true
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
-                            {
-                              'type': 'text',
-                              'name': 'courseTime',
-                              'label': '补习时间',
-                              'required': true,
-                              'clearable': true
                             },
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
                             {
-                              'type': 'text',
-                              'name': 'coursePlace',
-                              'label': '补习地点',
-                              'required': true,
-                              'clearable': true
+                              'type': 'divider'
                             },
-                          ]
-                        },
-                        {
-                          'type': 'group',
-                          'controls': [
                             {
-                              'type': 'textarea',
-                              'name': 'remark',
-                              'label': '备注'
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '年级：$grade'
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时费：$userFee'
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时薪酬：$teacherFee'
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习时间',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$courseTime',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习地点',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$coursePlace',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                              'lineStyle': 'solid'
+                            },
+                            {
+                              'type': 'plain',
+                              'text': '备注'
+                            },
+                            '<p/>'
+                            ,
+                            {
+                              'type': 'plain',
+                              'text': '$remark'
                             },
                           ]
                         }
-                      ]
+                      }
+                    },
+                    {
+                      'type': 'button',
+                      'label': '投递列表',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'title': '投递列表',
+                        'actions': '',
+                        'name': 'dialog2',
+                        'body': [
+                          {
+                            'type': 'crud',
+                            'api': 'GET /api/backendManage/course/tutor/getCoursTeacher/$cid',
+                            'loadDataOnce': true,
+                            'columns': [
+                              {
+                                'name': 'tid',
+                                'label': '教师Id',
+                              },
+                              {
+                                'name': 'name',
+                                'label': '姓名',
+                              },
+                              {
+                                'name': 'phoneNumber',
+                                'label': '手机号码',
+                              },
+                              {
+                                'type': 'operation',
+                                'label': '操作',
+                                'width': '',
+                                'buttons': [
+                                  {
+                                    'type': 'button',
+                                    'label': '',
+                                    'icon': 'fa fa-id-card-o',
+                                    'actionType': 'dialog',
+                                    'tooltip': '查看简历',
+                                    'dialog': {
+                                      'actions': '',
+                                      'title': '$name的简历',
+                                      'body': {
+                                        'type': 'page',
+                                        'initApi': 'GET /api/backendManage/course/tutor/getTeacherResume/$tid',
+                                        'body': [
+                                          {
+                                            'type': 'grid',
+                                            'columns': [
+                                              {
+                                                'type': 'plain',
+                                                'text': '姓名'
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '$name'
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '性别'
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '$sex'
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '民族'
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '$nation'
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            'type': 'divider'
+                                          },
+                                          {
+                                            'type': 'grid',
+                                            'columns': [
+                                              {
+                                                'type': 'plain',
+                                                'text': '邮箱',
+                                                'md': 2,
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '$email',
+                                                'md': 5,
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '电话',
+                                                'md': 2,
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '$phoneNumber',
+                                                'md': 3,
+                                              },
+                                            ]
+                                          },
+                                          {
+                                            'type': 'divider'
+                                          },
+                                          {
+                                            'type': 'grid',
+                                            'columns': [
+                                              {
+                                                'type': 'plain',
+                                                'text': '擅长科目',
+                                                'md': 3
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '$goodSubjects',
+                                                'md': 9
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            'type': 'divider'
+                                          },
+                                          {
+                                            'type': 'grid',
+                                            'columns': [
+                                              {
+                                                'type': 'plain',
+                                                'text': '兴趣爱好',
+                                                'md': 3
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '$hobby',
+                                                'md': 9
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            'type': 'divider'
+                                          },
+                                          {
+                                            'type': 'grid',
+                                            'columns': [
+                                              {
+                                                'type': 'plain',
+                                                'text': '学校：$school',
+                                                'md': 4
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '专业：$major',
+                                                'md': 5
+                                              },
+                                              {
+                                                'type': 'plain',
+                                                'text': '年级：$grade',
+                                                'md': 3
+                                              },
+                                            ]
+                                          },
+                                          {
+                                            'type': 'divider'
+                                          },
+                                          {
+                                            'type': 'plain',
+                                            'text': '所获荣誉'
+                                          },
+                                          '<p />',
+                                          {
+                                            'type': 'plain',
+                                            'text': '$honours'
+                                          },
+                                          {
+                                            'type': 'divider'
+                                          },
+                                          {
+                                            'type': 'plain',
+                                            'text': '教学经历'
+                                          },
+                                          '<p />',
+                                          {
+                                            'type': 'plain',
+                                            'text': '$teachExperience'
+                                          },
+                                          {
+                                            'type': 'divider'
+                                          },
+                                          {
+                                            'type': 'plain',
+                                            'text': '自我评价'
+                                          },
+                                          '<p />',
+                                          {
+                                            'type': 'plain',
+                                            'text': '$selfEvaluation'
+                                          },
+                                          {
+                                            'type': 'divider'
+                                          },
+                                          {
+                                            'type': 'plain',
+                                            'text': '空闲时间'
+                                          },
+                                          '<p />',
+                                          {
+                                            'type': 'plain',
+                                            'text': '$freeTime'
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  {
+                                    'type': 'button',
+                                    'label': '',
+                                    'tooltip': '选中',
+                                    'icon': 'fa fa-check text-success',
+                                    'actionType': 'ajax',
+                                    'confirmText': '确定选择教员 【 $name 】 试讲课程 【 $title 】 ？',
+                                    'api': '/api/backendManage/course/tutor/assignTeacher/$cid/$tid',
+                                    'reload': 'crud2',
+                                    'close': 'dialog2'
+                                  }
+                                ],
+                                'placeholder': '-',
+                                'fixed': 'right'
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      'type': 'button',
+                      'actionType': 'dialog',
+                      'label': '修改',
+                      'dialog': {
+                        'title': '修改课程',
+                        'body': {
+                          'type': 'form',
+                          'name': 'sample-edit-form',
+                          'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
+                          'api': 'POST /api/backendManage/course/tutor/updateCourse/$cid',
+                          'controls': [
+                            {
+                              'type': 'group',
+                              'controls': [
+                                {
+                                  'type': 'text',
+                                  'name': 'title',
+                                  'label': '课程标题',
+                                  'required': true
+                                },
+                                {
+                                  'type': 'number',
+                                  'name': 'hours',
+                                  'label': '课时数',
+                                  'required': true
+                                },
+                              ]
+                            },
+                            {
+                              'type': 'group',
+                              'controls': [
+                                {
+                                  'type': 'number',
+                                  'name': 'userFee',
+                                  'label': '课时费',
+                                  'required': true
+                                },
+                                {
+                                  'type': 'number',
+                                  'name': 'teacherFee',
+                                  'label': '课时薪酬',
+                                  'required': true
+                                },
+                              ]
+                            },
+                            {
+                              'type': 'group',
+                              'controls': [
+                                {
+                                  'type': 'select',
+                                  'name': 'subject',
+                                  'label': '补习科目',
+                                  'required': true,
+                                  "multiple": true,
+                                  'options': [
+                                    {
+                                      'label': '语文',
+                                      'value': '语文'
+                                    },
+                                    {
+                                      'label': '数学',
+                                      'value': '数学'
+                                    },
+                                    {
+                                      'label': '英语',
+                                      'value': '英语'
+                                    },
+                                    {
+                                      'label': '物理',
+                                      'value': '物理'
+                                    },
+                                    {
+                                      'label': '化学',
+                                      'value': '化学'
+                                    },
+                                    {
+                                      'label': '生物',
+                                      'value': '生物'
+                                    },
+                                    {
+                                      'label': '政治',
+                                      'value': '政治'
+                                    },
+                                    {
+                                      'label': '历史',
+                                      'value': '历史'
+                                    },
+                                    {
+                                      'label': '地理',
+                                      'value': '地理'
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'group',
+                              'controls': [
+                                {
+                                  'type': 'text',
+                                  'name': 'grade',
+                                  'label': '补习年级',
+                                  'required': true,
+                                  'clearable': true
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'group',
+                              'controls': [
+                                {
+                                  'type': 'text',
+                                  'name': 'courseTime',
+                                  'label': '补习时间',
+                                  'required': true,
+                                  'clearable': true
+                                },
+                              ]
+                            },
+                            {
+                              'type': 'group',
+                              'controls': [
+                                {
+                                  'type': 'text',
+                                  'name': 'coursePlace',
+                                  'label': '补习地点',
+                                  'required': true,
+                                  'clearable': true
+                                },
+                              ]
+                            },
+                            {
+                              'type': 'group',
+                              'controls': [
+                                {
+                                  'type': 'textarea',
+                                  'name': 'remark',
+                                  'label': '备注'
+                                },
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      'type': 'button',
+                      'label': '删除',
+                      'level': 'danger',
+                      'actionType': 'ajax',
+                      'confirmText': '确定要删除课程 【$title】？(删除后可从“已删除”恢复)',
+                      'api': 'POST /api/backendManage/course/tutor/deleteCourse/$cid'
                     }
-                  }
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'tooltip': '删除',
-                  'icon': 'fa fa-trash text-danger',
-                  'actionType': 'ajax',
-                  'confirmText': '确定要删除课程 【$title】？(删除后可从“已删除”恢复)',
-                  'api': 'POST /api/backendManage/course/tutor/deleteCourse/$cid'
+                  ]
                 }
-              ],
-              'placeholder': '-',
-              'fixed': 'right'
+              ]
             }
           ]
 
@@ -1407,126 +1405,117 @@ export const schema = {
             {
               'type': 'operation',
               'label': '操作',
-              'width': '2cm',
+              'width': '1.8cm',
               'buttons': [
                 {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '课程详情',
-                  'dialog': {
-                    'title': '课程详情-$title',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
+                  'type': 'button-group',
+                  'buttons': [
+                    {
+                      'type': 'button',
+                      'label': '详情',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'title': '课程详情-$title',
+                        'actions': '',
+                        'body': {
+                          'type': 'page',
+                          'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
+                          'loadDataOnce': true,
+                          'body': [
                             {
-                              'type': 'plain',
-                              'text': '补习科目：$subject'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习科目：$subject'
+                                }
+                              ]
+                            },
                             {
-                              'type': 'plain',
-                              'text': '年级：$grade'
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '年级：$grade'
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时费：$userFee'
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时薪酬：$teacherFee'
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习时间',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$courseTime',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习地点',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$coursePlace',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                              'lineStyle': 'solid'
                             },
                             {
                               'type': 'plain',
-                              'text': '课时费：$userFee'
+                              'text': '备注'
                             },
+                            '<p/>'
+                            ,
                             {
                               'type': 'plain',
-                              'text': '课时薪酬：$teacherFee'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 3
+                              'text': '$remark'
                             },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 9
-                            }
                           ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '备注'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$remark'
-                        },
-                      ]
+                        }
+                      }
+                    },
+                    {
+                      'type': 'button',
+                      'label': '结课',
+                      'level': 'success',
+                      'actionType': 'ajax',
+                      'confirmText': '确定将课程 【 $title 】 结课吗？',
+                      'api': 'POST /api/backendManage/course/tutor/endCourse/$cid'
                     }
-                  }
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-check text-success',
-                  'actionType': 'ajax',
-                  'tooltip': '结课',
-                  'confirmText': '确定将课程 【 $title 】 结课吗？',
-                  'api': 'POST /api/backendManage/course/tutor/endCourse/$cid'
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'tooltip': '删除',
-                  'icon': 'fa fa-trash text-danger',
-                  'actionType': 'ajax',
-                  'confirmText': '确定要删除课程 【$title】？(删除后可从“已删除”恢复)',
-                  'api': 'POST /api/backendManage/course/tutor/deleteCourse/$cid'
+                  ]
                 }
-              ],
-              'placeholder': '-',
-              'fixed': 'right'
+              ]
             }
           ]
 
@@ -1598,111 +1587,111 @@ export const schema = {
             {
               'type': 'operation',
               'label': '操作',
-              'width': '',
+              'width': '0.8cm',
               'buttons': [
                 {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '课程详情',
-                  'dialog': {
-                    'title': '课程详情-$title',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
+                  'type': 'button-group',
+                  'buttons': [
+                    {
+                      'type': 'button',
+                      'label': '详情',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'title': '课程详情-$title',
+                        'actions': '',
+                        'body': {
+                          'type': 'page',
+                          'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
+                          'loadDataOnce': true,
+                          'body': [
                             {
-                              'type': 'plain',
-                              'text': '补习科目：$subject'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习科目：$subject'
+                                }
+                              ]
+                            },
                             {
-                              'type': 'plain',
-                              'text': '年级：$grade'
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '年级：$grade'
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时费：$userFee'
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时薪酬：$teacherFee'
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习时间',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$courseTime',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习地点',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$coursePlace',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                              'lineStyle': 'solid'
                             },
                             {
                               'type': 'plain',
-                              'text': '课时费：$userFee'
+                              'text': '备注'
                             },
+                            '<p/>'
+                            ,
                             {
                               'type': 'plain',
-                              'text': '课时薪酬：$teacherFee'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 3
+                              'text': '$remark'
                             },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 9
-                            }
                           ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '备注'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$remark'
-                        },
-                      ]
+                        }
+                      }
                     }
-                  }
+                  ]
                 }
-              ],
-              'placeholder': '-',
-              'fixed': 'right'
+              ]
             }
           ]
-
         }
       },
       {
@@ -1757,128 +1746,127 @@ export const schema = {
             {
               'type': 'operation',
               'label': '操作',
-              'width': '2cm',
+              'width': '3.5cm',
               'buttons': [
                 {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '课程详情',
-                  'dialog': {
-                    'title': '课程详情-$title',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
+                  'type': 'button-group',
+                  'buttons': [
+                    {
+                      'type': 'button',
+                      'label': '详情',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'title': '课程详情-$title',
+                        'actions': '',
+                        'body': {
+                          'type': 'page',
+                          'initApi': 'GET /api/backendManage/course/tutor/getCourse/$cid',
+                          'loadDataOnce': true,
+                          'body': [
                             {
-                              'type': 'plain',
-                              'text': '补习科目：$subject'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习科目：$subject'
+                                }
+                              ]
+                            },
                             {
-                              'type': 'plain',
-                              'text': '年级：$grade'
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '年级：$grade'
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时费：$userFee'
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时薪酬：$teacherFee'
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习时间',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$courseTime',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习地点',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$coursePlace',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                              'lineStyle': 'solid'
                             },
                             {
                               'type': 'plain',
-                              'text': '课时费：$userFee'
+                              'text': '备注'
                             },
+                            '<p/>'
+                            ,
                             {
                               'type': 'plain',
-                              'text': '课时薪酬：$teacherFee'
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 3
+                              'text': '$remark'
                             },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 9
-                            }
                           ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '备注'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$remark'
-                        },
-                      ]
+                        }
+                      }
+                    },
+                    {
+                      'type': 'button',
+                      'label': '恢复',
+                      'level': 'success',
+                      'actionType': 'ajax',
+                      'confirmText': '确定要恢复课程$cid？',
+                      'api': 'POST /api/backendManage/course/tutor/restoreCourse/$cid'
+                    },
+                    {
+                      'type': 'button',
+                      'label': '彻底删除',
+                      'actionType': 'ajax',
+                      'level': 'danger',
+                      'confirmText': '<h5>【数据无价，谨慎操作】</h5>' +
+                        '<h6>确定永久删除课程$cid？</h6>' +
+                        '<h6>* 删除后无法恢复</h6>',
+                      'api': 'POST /api/backendManage/course/tutor/deleteCoursePermanent/$cid'
                     }
-                  }
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-mail-reply text-success',
-                  'actionType': 'ajax',
-                  'tooltip': '恢复',
-                  'confirmText': '确定要恢复课程$cid？',
-                  'api': 'POST /api/backendManage/course/tutor/restoreCourse/$cid'
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-remove text-danger',
-                  'actionType': 'ajax',
-                  'tooltip': '彻底删除',
-                  'confirmText': '<h5>【数据无价，谨慎操作】</h5>' +
-                    '<h6>确定永久删除课程$cid？</h6>' +
-                    '<h6>* 删除后无法恢复</h6>',
-                  'api': 'POST /api/backendManage/course/tutor/deleteCoursePermanent/$cid'
+                  ]
                 }
-              ],
-              'placeholder': '-',
-              'fixed': 'right'
+              ]
             }
           ]
         }
