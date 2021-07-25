@@ -16,6 +16,7 @@ export const schema = {
           'type': 'form',
           'name': 'sample-edit-form',
           'api': `POST /api/backendManage/financial/payroll/payroll/${getStore(storeKeys.token)}/0`,
+          'initApi': 'GET /api/backendManage/financial/payroll/getOptions',
           'data': {
             'reamrk': '无'
           },
@@ -24,105 +25,12 @@ export const schema = {
               'type': 'group',
               'controls': [
                 {
-                  'type': 'input-group',
-                  'label': '管理员',
+                  "label": "选择对象",
+                  "type": "select",
+                  "name": "adminId",
+                  "searchable": true,
                   'required': true,
-                  'controls': [
-                    {
-                      'type': 'text',
-                      'name': 'adminName',
-                    },
-                    {
-                      "type": "button",
-                      "label": "查询",
-                      "actionType": "ajax",
-                      "api": "GET /api/backendManage/financial/payroll/getAdminInfo/$adminName",
-                      "feedback": {
-                        "title": "管理员信息",
-                        "actions": [],
-                        'body': {
-                          'type': 'page',
-                          'body': [
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '姓名'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$name'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '性别'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$sex'
-                                }
-                              ]
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '联系方式',
-                                  'md': 3
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$phoneNumber',
-                                  'md': 9
-                                }
-                              ]
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '邮箱号',
-                                  'md': 3
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$email',
-                                  'md': 9
-                                }
-                              ]
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '学院',
-                                  'md': 3
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$academy',
-                                  'md': 9
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  ]
+                  "source": "${Admins}"
                 }
               ]
             },

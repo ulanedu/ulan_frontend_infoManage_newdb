@@ -14,10 +14,12 @@ export const schema = {
           'type': 'form',
           'name': 'sample-edit-form',
           'api': 'POST /api/backendManage/course/tutor/createCourse',
+          'initApi': 'GET /api/backendManage/course/tutor/getOptions',
           'data': {
             'teacherPhoneNumb': 0,
             'showStatus': 0,
-            'remark': '无'
+            'remark': '无',
+            'teacherId': -1
           },
           'controls': [
             {
@@ -41,293 +43,26 @@ export const schema = {
               'type': 'group',
               'controls': [
                 {
-                  'type': 'input-group',
-                  'label': '用户手机',
+                  "label": "选择用户",
+                  "type": "select",
+                  "name": "userId",
+                  "searchable": true,
                   'required': true,
-                  'controls': [
-                    {
-                      'type': 'text',
-                      'name': 'userPhoneNumb',
-                    },
-                    {
-                      "type": "button",
-                      "label": "查询",
-                      "actionType": "ajax",
-                      "api": "GET /api/backendManage/course/tutor/getUserInfo/$userPhoneNumb",
-                      "feedback": {
-                        "title": "用户信息(ID: $uid)",
-                        "actions": [],
-                        'body': {
-                          'type': 'page',
-                          'body': [
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '姓名'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$studentName'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '性别'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$studentSex'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '家长'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$parentName'
-                                }
-                              ]
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '学校',
-                                  'md': 2,
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$studentSchool',
-                                  'md': 4,
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '年级',
-                                  'md': 2,
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$studentGrade',
-                                  'md': 4,
-                                },
-                              ]
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                },
+                  "source": "${Users}"
+                }
+              ]
+            },
+            {
+              'type': 'group',
+              'hiddenOn': 'this.class == \'订单课\'',
+              'controls': [
                 {
-                  'type': 'input-group',
-                  'label': '教员手机',
-                  'required': false,
-                  'hiddenOn': 'this.class == \'订单课\'',
-                  'controls': [
-                    {
-                      'type': 'text',
-                      'name': 'teacherPhoneNumb',
-                    },
-                    {
-                      "type": "button",
-                      "label": "查询",
-                      "actionType": "ajax",
-                      "api": "GET /api/backendManage/course/tutor/getTeacherInfo/$teacherPhoneNumb",
-                      "feedback": {
-                        "title": "教员信息(ID: $tid)",
-                        "actions": [],
-                        'body': {
-                          'type': 'page',
-                          'body': [
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '姓名'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$tname'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '性别'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$tsex'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '民族'
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$tnation'
-                                }
-                              ]
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '邮箱',
-                                  'md': 2,
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$temail',
-                                  'md': 5,
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '电话',
-                                  'md': 2,
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$tphoneNumber',
-                                  'md': 3,
-                                },
-                              ]
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '擅长科目',
-                                  'md': 3
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$tgoodSubjects',
-                                  'md': 9
-                                }
-                              ]
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '兴趣爱好',
-                                  'md': 3
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$thobby',
-                                  'md': 9
-                                }
-                              ]
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'grid',
-                              'columns': [
-                                {
-                                  'type': 'plain',
-                                  'text': '学校',
-                                  'md': 2
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$tschool',
-                                  'md': 4
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '专业',
-                                  'md': 2
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$tmajor',
-                                  'md': 4
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '年级',
-                                  'md': 2
-                                },
-                                {
-                                  'type': 'plain',
-                                  'text': '$tgrade',
-                                  'md': 3
-                                }
-                              ]
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '所获荣誉'
-                            },
-                            '<p />',
-                            {
-                              'type': 'plain',
-                              'text': '$honours'
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '教学经历'
-                            },
-                            '<p />',
-                            {
-                              'type': 'plain',
-                              'text': '$teachExperience'
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '自我评价'
-                            },
-                            '<p />',
-                            {
-                              'type': 'plain',
-                              'text': '$selfEvaluation'
-                            },
-                            {
-                              'type': 'divider'
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '空闲时间'
-                            },
-                            '<p />',
-                            {
-                              'type': 'plain',
-                              'text': '$freeTime'
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  ]
+                  "label": "选择教员",
+                  "type": "select",
+                  "name": "teacherId",
+                  "searchable": true,
+                  'required': true,
+                  "source": "${Teachers}"
                 }
               ]
             },
