@@ -62,247 +62,246 @@ export const schema = {
             {
               'type': 'operation',
               'label': '操作',
-              'width': '2cm',
+              'width': '3cm',
               'buttons': [
                 {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '查看详情',
-                  'dialog': {
-                    'title': '申请详情($title: $dismissedHour小时)',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/course/dismissal/getDismissalCourse/$daid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
+                  'type': 'button-group',
+                  'buttons': [
+                    {
+                      'type': 'button',
+                      'label': '详情',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'title': '申请详情($title: $dismissedHour小时)',
+                        'actions': '',
+                        'body': {
+                          'type': 'page',
+                          'initApi': 'GET /api/backendManage/course/dismissal/getDismissalCourse/$daid',
+                          'loadDataOnce': true,
+                          'body': [
                             {
-                              'type': 'plain',
-                              'text': '教师',
-                              'md': 2
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '教师',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherName',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '电话',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherPhoneNumber',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '学生',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$studentName',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '电话',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$studentPhoneNumber',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '科目',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$subject',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '年级',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$grade',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '总课时',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$hours',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '已消课时',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$completedHours',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '课时费',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$userFee',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时薪酬',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherFee',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习时间',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$courseTime',
+                                  'md': 8
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习地点',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$coursePlace',
+                                  'md': 8
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                              'lineStyle': 'solid'
                             },
                             {
                               'type': 'plain',
-                              'text': '$teacherName',
-                              'md': 4
+                              'text': '课程内容'
+                            },
+                            '<p/>'
+                            ,
+                            {
+                              'type': 'plain',
+                              'text': '$courseContent'
+                            },
+                            {
+                              'type': 'divider',
                             },
                             {
                               'type': 'plain',
-                              'text': '电话',
-                              'md': 2
+                              'text': '用户评价'
                             },
+                            '<p/>'
+                            ,
                             {
                               'type': 'plain',
-                              'text': '$teacherPhoneNumber',
-                              'md': 4
-                            }
+                              'text': '$userEvaluation'
+                            },
                           ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '学生',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$studentName',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '电话',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$studentPhoneNumber',
-                              'md': 4
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '科目',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$subject',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '年级',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$grade',
-                              'md': 4
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '总课时',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$hours',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '已消课时',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$completedHours',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '课时费',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$userFee',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '课时薪酬',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$teacherFee',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 8
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 8
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '课程内容'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$courseContent'
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '用户评价'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$userEvaluation'
-                        },
-                      ]
+                        }
+                      }
+                    },
+                    {
+                      'type': 'button',
+                      'label': '通过',
+                      'level': 'success',
+                      'actionType': 'ajax',
+                      'confirmText': '确定要通过教员 【 $teacherName 】 的消课申请吗 ？',
+                      'api': `POST /api/backendManage/course/dismissal/passApplication/$daid/${getStore(storeKeys.token)}`
+                    },
+                    {
+                      'type': 'button',
+                      'label': '拒绝',
+                      'level': 'danger',
+                      'actionType': 'ajax',
+                      'confirmText': '确定要拒绝教员 【 $teacherName 】 的消课申请吗 ？',
+                      'api': `POST /api/backendManage/course/dismissal/refuseApplication/$daid/${getStore(storeKeys.token)}`
                     }
-                  }
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-check text-success',
-                  'tooltip': '通过申请',
-                  'actionType': 'ajax',
-                  'confirmText': '确定要通过教员 【 $teacherName 】 的消课申请吗 ？',
-                  'api': `POST /api/backendManage/course/dismissal/passApplication/$daid/${getStore(storeKeys.token)}`
-                },
-                {
-                  'type': 'button',
-                  'label': '',
-                  'tooltip': '拒绝申请',
-                  'icon': 'fa fa-times text-danger',
-                  'actionType': 'ajax',
-                  'confirmText': '确定要拒绝教员 【 $teacherName 】 的消课申请吗 ？',
-                  'api': `POST /api/backendManage/course/dismissal/refuseApplication/$daid/${getStore(storeKeys.token)}`
+                  ]
                 }
-              ],
-              'placeholder': '-',
-              'fixed': 'right'
+              ]
             }
           ]
         },
@@ -373,229 +372,230 @@ export const schema = {
             {
               'type': 'operation',
               'label': '操作',
-              'width': '',
+              'width': '0.8cm',
               'buttons': [
                 {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '查看详情',
-                  'dialog': {
-                    'title': '申请详情($title: $dismissedHour小时)',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/course/dismissal/getDismissalCourse/$daid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
+                  'type': 'button-group',
+                  'buttons': [
+                    {
+                      'type': 'button',
+                      'label': '详情',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'title': '申请详情($title: $dismissedHour小时)',
+                        'actions': '',
+                        'body': {
+                          'type': 'page',
+                          'initApi': 'GET /api/backendManage/course/dismissal/getDismissalCourse/$daid',
+                          'loadDataOnce': true,
+                          'body': [
                             {
-                              'type': 'plain',
-                              'text': '教师',
-                              'md': 2
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '教师',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherName',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '电话',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherPhoneNumber',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '学生',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$studentName',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '电话',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$studentPhoneNumber',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '科目',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$subject',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '年级',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$grade',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '总课时',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$hours',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '已消课时',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$completedHours',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '课时费',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$userFee',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时薪酬',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherFee',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习时间',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$courseTime',
+                                  'md': 8
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习地点',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$coursePlace',
+                                  'md': 8
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                              'lineStyle': 'solid'
                             },
                             {
                               'type': 'plain',
-                              'text': '$teacherName',
-                              'md': 4
+                              'text': '课程内容'
+                            },
+                            '<p/>'
+                            ,
+                            {
+                              'type': 'plain',
+                              'text': '$courseContent'
+                            },
+                            {
+                              'type': 'divider',
                             },
                             {
                               'type': 'plain',
-                              'text': '电话',
-                              'md': 2
+                              'text': '用户评价'
                             },
+                            '<p/>'
+                            ,
                             {
                               'type': 'plain',
-                              'text': '$teacherPhoneNumber',
-                              'md': 4
-                            }
+                              'text': '$userEvaluation'
+                            },
                           ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '学生',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$studentName',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '电话',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$studentPhoneNumber',
-                              'md': 4
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '科目',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$subject',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '年级',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$grade',
-                              'md': 4
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '总课时',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$hours',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '已消课时',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$completedHours',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '课时费',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$userFee',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '课时薪酬',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$teacherFee',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 8
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 8
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '课程内容'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$courseContent'
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '用户评价'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$userEvaluation'
-                        },
-                      ]
+                        }
+                      }
                     }
-                  }
+                  ]
                 }
-              ],
-              'placeholder': '-',
-              'fixed': 'right'
+              ]
             }
           ]
         },
@@ -658,229 +658,230 @@ export const schema = {
             {
               'type': 'operation',
               'label': '操作',
-              'width': '',
+              'width': '0.8cm',
               'buttons': [
                 {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '查看详情',
-                  'dialog': {
-                    'title': '申请详情($title: $dismissedHour小时)',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/course/dismissal/getDismissalCourse/$daid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
+                  'type': 'button-group',
+                  'buttons': [
+                    {
+                      'type': 'button',
+                      'label': '详情',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'title': '申请详情($title: $dismissedHour小时)',
+                        'actions': '',
+                        'body': {
+                          'type': 'page',
+                          'initApi': 'GET /api/backendManage/course/dismissal/getDismissalCourse/$daid',
+                          'loadDataOnce': true,
+                          'body': [
                             {
-                              'type': 'plain',
-                              'text': '教师',
-                              'md': 2
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '教师',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherName',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '电话',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherPhoneNumber',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '学生',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$studentName',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '电话',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$studentPhoneNumber',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '科目',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$subject',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '年级',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$grade',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '总课时',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$hours',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '已消课时',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$completedHours',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '课时费',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$userFee',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时薪酬',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherFee',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习时间',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$courseTime',
+                                  'md': 8
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习地点',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$coursePlace',
+                                  'md': 8
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                              'lineStyle': 'solid'
                             },
                             {
                               'type': 'plain',
-                              'text': '$teacherName',
-                              'md': 4
+                              'text': '课程内容'
+                            },
+                            '<p/>'
+                            ,
+                            {
+                              'type': 'plain',
+                              'text': '$courseContent'
+                            },
+                            {
+                              'type': 'divider',
                             },
                             {
                               'type': 'plain',
-                              'text': '电话',
-                              'md': 2
+                              'text': '用户评价'
                             },
+                            '<p/>'
+                            ,
                             {
                               'type': 'plain',
-                              'text': '$teacherPhoneNumber',
-                              'md': 4
-                            }
+                              'text': '$userEvaluation'
+                            },
                           ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '学生',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$studentName',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '电话',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$studentPhoneNumber',
-                              'md': 4
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '科目',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$subject',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '年级',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$grade',
-                              'md': 4
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '总课时',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$hours',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '已消课时',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$completedHours',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '课时费',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$userFee',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '课时薪酬',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$teacherFee',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 8
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 8
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '课程内容'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$courseContent'
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '用户评价'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$userEvaluation'
-                        },
-                      ]
+                        }
+                      }
                     }
-                  }
+                  ]
                 }
-              ],
-              'placeholder': '-',
-              'fixed': 'right'
+              ]
             }
           ]
         },

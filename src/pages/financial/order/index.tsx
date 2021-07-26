@@ -19,7 +19,7 @@ export const schema = {
           'columns': [
             {
               'name': 'oid',
-              'label': '',
+              'label': '订单Id',
               'sortable': true
             },
             {
@@ -51,189 +51,190 @@ export const schema = {
             {
               'type': 'operation',
               'label': '操作',
-              'width': '1cm',
+              'width': '0.8cm',
               'buttons': [
                 {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '订单详情',
-                  'dialog': {
-                    'position': 'right',
-                    'title': '订单详情',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/financial/order/getCommodity/$oid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
+                  'type': 'button-group',
+                  'buttons': [
+                    {
+                      'type': 'button',
+                      'label': '详情',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'position': 'right',
+                        'title': '订单详情',
+                        'actions': '',
+                        'body': {
+                          'type': 'page',
+                          'initApi': 'GET /api/backendManage/financial/order/getCommodity/$oid',
+                          'loadDataOnce': true,
+                          'body': [
                             {
-                              'type': 'plain',
-                              'text': '类型',
-                              'md': 2
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '类型',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$class',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '创建时间',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$createTime',
+                                  'md': 5
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '科目',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$subject',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '年级',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$grade',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '课时费',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$userFee',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时薪酬',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherFee',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '总时长',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$hours',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '已完成',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$completedHours',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习时间',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$courseTime',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习地点',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$coursePlace',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                              'lineStyle': 'solid'
                             },
                             {
                               'type': 'plain',
-                              'text': '$class',
-                              'md': 2
+                              'text': '备注'
                             },
+                            '<p/>'
+                            ,
                             {
                               'type': 'plain',
-                              'text': '创建时间',
-                              'md': 3
+                              'text': '$remark'
                             },
-                            {
-                              'type': 'plain',
-                              'text': '$createTime',
-                              'md': 5
-                            }
                           ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '科目',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$subject',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '年级',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$grade',
-                              'md': 4
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '课时费',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$userFee',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '课时薪酬',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$teacherFee',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '总时长',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$hours',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '已完成',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$completedHours',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '备注'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$remark'
-                        },
-                      ]
+                        }
+                      }
                     }
-                  }
+                  ]
                 }
-              ],
-              'placeholder': '-',
-              'fixed': 'right'
+              ]
             }
           ]
         }
@@ -253,7 +254,7 @@ export const schema = {
           'columns': [
             {
               'name': 'oid',
-              'label': '',
+              'label': '订单Id',
               'sortable': true
             },
             {
@@ -297,185 +298,188 @@ export const schema = {
             {
               'type': 'operation',
               'label': '操作',
-              'width': '1cm',
+              'width': '0.8cm',
               'buttons': [
                 {
-                  'type': 'button',
-                  'label': '',
-                  'icon': 'fa fa-eye',
-                  'actionType': 'dialog',
-                  'tooltip': '订单详情',
-                  'dialog': {
-                    'position': 'right',
-                    'title': '订单详情',
-                    'actions': '',
-                    'body': {
-                      'type': 'page',
-                      'initApi': 'GET /api/backendManage/financial/order/getCommodity/$oid',
-                      'loadDataOnce': true,
-                      'body': [
-                        {
-                          'type': 'grid',
-                          'columns': [
+                  'type': 'button-group',
+                  'buttons': [
+                    {
+                      'type': 'button',
+                      'label': '详情',
+                      'actionType': 'dialog',
+                      'dialog': {
+                        'position': 'right',
+                        'title': '订单详情',
+                        'actions': '',
+                        'body': {
+                          'type': 'page',
+                          'initApi': 'GET /api/backendManage/financial/order/getCommodity/$oid',
+                          'loadDataOnce': true,
+                          'body': [
                             {
-                              'type': 'plain',
-                              'text': '类型',
-                              'md': 2
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '类型',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$class',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '创建时间',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$createTime',
+                                  'md': 5
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '科目',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$subject',
+                                  'md': 4
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '年级',
+                                  'md': 2
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$grade',
+                                  'md': 4
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '课时费',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$userFee',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '课时薪酬',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$teacherFee',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '总时长',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$hours',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '已完成',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$completedHours',
+                                  'md': 3
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider'
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习时间',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$courseTime',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                            },
+                            {
+                              'type': 'grid',
+                              'columns': [
+                                {
+                                  'type': 'plain',
+                                  'text': '补习地点',
+                                  'md': 3
+                                },
+                                {
+                                  'type': 'plain',
+                                  'text': '$coursePlace',
+                                  'md': 9
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'divider',
+                              'lineStyle': 'solid'
                             },
                             {
                               'type': 'plain',
-                              'text': '$class',
-                              'md': 2
+                              'text': '备注'
                             },
+                            '<p/>'
+                            ,
                             {
                               'type': 'plain',
-                              'text': '创建时间',
-                              'md': 3
+                              'text': '$remark'
                             },
-                            {
-                              'type': 'plain',
-                              'text': '$createTime',
-                              'md': 5
-                            }
                           ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '科目',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$subject',
-                              'md': 4
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '年级',
-                              'md': 2
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$grade',
-                              'md': 4
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '课时费',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$userFee',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '课时薪酬',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$teacherFee',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '总时长',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$hours',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '已完成',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$completedHours',
-                              'md': 3
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider'
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习时间',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$courseTime',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                        },
-                        {
-                          'type': 'grid',
-                          'columns': [
-                            {
-                              'type': 'plain',
-                              'text': '补习地点',
-                              'md': 3
-                            },
-                            {
-                              'type': 'plain',
-                              'text': '$coursePlace',
-                              'md': 9
-                            }
-                          ]
-                        },
-                        {
-                          'type': 'divider',
-                          'lineStyle': 'solid'
-                        },
-                        {
-                          'type': 'plain',
-                          'text': '备注'
-                        },
-                        '<p/>'
-                        ,
-                        {
-                          'type': 'plain',
-                          'text': '$remark'
-                        },
-                      ]
+                        }
+                      }
                     }
-                  }
+                  ]
                 }
               ],
               'placeholder': '-',

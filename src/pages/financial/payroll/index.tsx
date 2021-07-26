@@ -31,12 +31,7 @@ export const schema = {
                   "searchable": true,
                   'required': true,
                   "source": "${Admins}"
-                }
-              ]
-            },
-            {
-              'type': 'group',
-              'controls': [
+                },
                 {
                   'type': 'number',
                   'name': 'amount',
@@ -51,7 +46,8 @@ export const schema = {
                 {
                   'type': 'textarea',
                   'name': 'remark',
-                  'label': '备注'
+                  'label': '备注',
+                  'required': true
                 },
               ]
             }
@@ -71,6 +67,9 @@ export const schema = {
           syncLocation: false,
           api: 'GET /api/backendManage/financial/payroll/getPayrolls',
           headerToolbar: [
+            'export-excel',
+            'pagination',
+            "statistics"
           ],
           columns: [
             {
@@ -105,69 +104,112 @@ export const schema = {
             {
               type: 'operation',
               label: '操作',
-              width: '1.5cm',
+              width: '2cm',
               buttons: [
                 {
-                  type: 'button',
-                  icon: 'fa fa-eye',
-                  actionType: 'dialog',
-                  tooltip: '查看明细',
-                  dialog: {
-                    'title': '工资明细',
-                    "size": "lg",
-                    "actions": [],
-                    'body': {
-                      'type': 'crud',
-                      'syncLocation': false,
-                      'api': 'GET /api/backendManage/financial/payroll/getBeforePayrollDetail/$sid',
-                      'headerToolbar': [
-                        'pagination',
-                        'statistics'
-                      ],
-                      'columns': [
-                        {
-                          'name': 'daid',
-                          'label': '消课Id',
-                          'sortable': true
-                        },
-                        {
-                          'name': 'title',
-                          'label': '课程标题'
-                        },
-                        {
-                          'name': 'dismissedHour',
-                          'label': '消课课时',
-                        },
-                        {
-                          'name': 'teacherFee',
-                          'label': '课时费'
-                        },
-                        {
-                          'name': 'amount',
-                          'label': '金额'
-                        },
-                        {
-                          'name': 'adminName',
-                          'label': '审核人'
-                        },
-                        {
-                          'name': 'adminReviewTime',
-                          'label': '审核时间'
+                  type: 'button-group',
+                  buttons: [
+                    {
+                      type: 'button',
+                      label: '明细',
+                      actionType: 'dialog',
+                      dialog: {
+                        'title': '工资明细',
+                        "size": "lg",
+                        "actions": [],
+                        'body': {
+                          'type': 'crud',
+                          'syncLocation': false,
+                          'api': 'GET /api/backendManage/financial/payroll/getBeforePayrollDetail/$sid',
+                          'headerToolbar': [
+                            'pagination',
+                            'statistics'
+                          ],
+                          'columns': [
+                            {
+                              'name': 'daid',
+                              'label': '消课Id',
+                              'sortable': true
+                            },
+                            {
+                              'name': 'title',
+                              'label': '课程标题'
+                            },
+                            {
+                              'name': 'dismissedHour',
+                              'label': '消课课时',
+                            },
+                            {
+                              'name': 'teacherFee',
+                              'label': '课时费'
+                            },
+                            {
+                              'name': 'amount',
+                              'label': '金额'
+                            },
+                            {
+                              'name': 'adminName',
+                              'label': '审核人'
+                            },
+                            {
+                              'name': 'adminReviewTime',
+                              'label': '审核时间'
+                            }
+                          ]
                         }
-                      ]
+                      }
+                    },
+                    {
+                      type: 'button',
+                      label: '结算',
+                      level: 'success',
+                      actionType: 'dialog',
+                      dialog: {
+                        'data': {
+                          'remark': '无',
+                          'sid': '${sid}',
+                          'amount': '${amount}'
+                        },
+                        'title': '工资结算',
+                        'body': {
+                          'type': 'form',
+                          'name': 'sample-edit-form',
+                          'api': `POST /api/backendManage/financial/payroll/payroll/${getStore(storeKeys.token)}/1`,
+                          'controls': [
+                            {
+                              'type': 'group',
+                              'controls': [
+                                {
+                                  'type': 'plain',
+                                  'name': 'sid',
+                                  'label': '教员Id'
+                                },
+                                {
+                                  'type': 'plain',
+                                  'name': 'amount',
+                                  'label': '金额'
+                                }
+                              ]
+                            },
+                            {
+                              'type': 'group',
+                              'controls': [
+                                {
+                                  'type': 'textarea',
+                                  'name': 'remark',
+                                  'label': '备注',
+                                  'required': true
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        'confirmText': '您确认要结算该教员的工资吗?',
+                      }
                     }
-                  }
-                },
-                {
-                  type: 'button',
-                  icon: 'fa fa-credit-card',
-                  actionType: 'ajax',
-                  tooltip: '工资结算',
-                  confirmText: '您确认要结算该教员的工资吗?',
-                  api: `POST /api/backendManage/financial/payroll/payroll/${getStore(storeKeys.token)}/1`
+                  ]
                 }
-              ],
-              toggled: true
+              ]
             }
           ]
         }
@@ -202,7 +244,9 @@ export const schema = {
                   label: '搜索'
                 },
               ],
-            }
+            },
+            'pagination',
+            "statistics"
           ],
           columns: [
             {
@@ -261,68 +305,71 @@ export const schema = {
             {
               type: 'operation',
               label: '操作',
-              width: '1.5cm',
+              width: '2cm',
               buttons: [
                 {
-                  type: 'button',
-                  icon: 'fa fa-eye',
-                  actionType: 'dialog',
-                  tooltip: '查看明细',
-                  dialog: {
-                    'title': '工资明细',
-                    "actions": [],
-                    'body': {
-                      'type': 'crud',
-                      'syncLocation': false,
-                      'api': 'GET /api/backendManage/financial/payroll/getPayrollDetail/$prid',
-                      'headerToolbar': [
-                        'pagination',
-                        'statistics'
-                      ],
-                      'columns': [
-                        {
-                          'name': 'daid',
-                          'label': '消课Id',
-                          'sortable': true
-                        },
-                        {
-                          'name': 'title',
-                          'label': '课程标题'
-                        },
-                        {
-                          'name': 'dismissedHour',
-                          'label': '消课课时',
-                        },
-                        {
-                          'name': 'teacherFee',
-                          'label': '课时费'
-                        },
-                        {
-                          'name': 'amount',
-                          'label': '金额'
-                        },
-                        {
-                          'name': 'adminName',
-                          'label': '审核人'
-                        },
-                        {
-                          'name': 'adminReviewTime',
-                          'label': '审核时间'
+                  type: 'button-group',
+                  buttons: [
+                    {
+                      type: 'button',
+                      label: '明细',
+                      actionType: 'dialog',
+                      dialog: {
+                        'title': '工资明细',
+                        "actions": [],
+                        'body': {
+                          'type': 'crud',
+                          'syncLocation': false,
+                          'api': 'GET /api/backendManage/financial/payroll/getPayrollDetail/$prid',
+                          'headerToolbar': [
+                            'pagination',
+                            'statistics'
+                          ],
+                          'columns': [
+                            {
+                              'name': 'daid',
+                              'label': '消课Id',
+                              'sortable': true
+                            },
+                            {
+                              'name': 'title',
+                              'label': '课程标题'
+                            },
+                            {
+                              'name': 'dismissedHour',
+                              'label': '消课课时',
+                            },
+                            {
+                              'name': 'teacherFee',
+                              'label': '课时费'
+                            },
+                            {
+                              'name': 'amount',
+                              'label': '金额'
+                            },
+                            {
+                              'name': 'adminName',
+                              'label': '审核人'
+                            },
+                            {
+                              'name': 'adminReviewTime',
+                              'label': '审核时间'
+                            }
+                          ]
                         }
-                      ]
+                      }
+                    },
+                    {
+                      type: 'button',
+                      label: '删除',
+                      level: 'danger',
+                      actionType: 'ajax',
+                      confirmText: '您确认要删除?',
+                      api: '/api/v2/billsdelete/$bills_status'
                     }
-                  }
-                },
-                {
-                  type: 'button',
-                  icon: 'fa fa-times text-danger',
-                  actionType: 'ajax',
-                  tooltip: '删除',
-                  confirmText: '您确认要删除?',
-                  api: '/api/v2/billsdelete/$bills_status'
+                  ]
                 }
-              ],
-              toggled: true
+              ]
             }
           ]
         }

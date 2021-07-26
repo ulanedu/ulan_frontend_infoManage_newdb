@@ -24,7 +24,6 @@ export const layout = {
         href: '/',
       },
     },
-    // 头部 工具项
     items: [
       {
         type: 'item-dev-code', // 查看页面JSON， release 环境不会显示。
@@ -39,23 +38,45 @@ export const layout = {
         type: 'item-search-menu', // 搜索侧边栏
       },
       {
-        type: 'head-item', // 头部工具项
+        type: 'head-item',
         align: 'right',
         body: {
           type: 'html',
           html: `
-          <a
+        <a
             target="blank"
-            href="https://github.com/CareyToboo/ovine"
-            data-tooltip="Github 源码"
+            href="https://oa.youlanedu.com/"
+            data-tooltip="OA办公系统"
             data-position="bottom"
           >
             <img
-              alt="github starts"
-              src="https://img.shields.io/github/stars/CareyToboo/ovine?style=social"
+              alt="oa系统"
+              src="https://youlanedu.com/storage/images/oa%E5%8A%9E%E5%85%AC.png"
+              height="20"
             />
           </a>
-        `,
+        `
+        },
+      },
+      {
+        type: 'head-item',
+        align: 'right',
+        body: {
+          type: 'html',
+          html: `
+            <a
+              target="blank"
+              href="https://github.com/ulanedu"
+              data-tooltip="Github 源码"
+              data-position="bottom"
+            >
+              <img
+                alt="github"
+                src="https://youlanedu.com/storage/images/GitHub.png"
+                height="25"
+              />
+            </a>
+          `,
         },
       },
       itemUserSchema, // 用户头像展示扩展
