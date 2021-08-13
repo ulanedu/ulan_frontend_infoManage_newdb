@@ -77,8 +77,20 @@ export const apis = {
     mockSource,
   },
   uploadImg: {
-    url: 'POST ovapi/file/image',
-    actionDesc: '上传图片',
+    url: 'POST api/backendManage/admin/uploadImg',
+    actionDesc: '上传照片',
+    onError: () => {
+      publish(msgKeys.updateAuthLoginCode, '')
+    },
+    onSuccess: async (source) => {
+      const { code, msg } = source
+      if (code === 0) {
+        source.msg = msg
+      } else {
+        source.msg = msg || '上传异常'
+      }
+      return source
+    },
   },
   pageStat: {
     url: 'POST ovapi/stat/data',

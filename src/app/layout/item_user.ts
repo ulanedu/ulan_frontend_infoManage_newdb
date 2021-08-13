@@ -50,18 +50,38 @@ export const itemUserSchema = {
               reload: 'headItemUserInfo',
               controls: [
                 {
-                  type: 'image',
+                  type: 'file',
                   label: '头像',
-                  name: 'avatar',
-                  reciever: apis.uploadImg,
-                  autoUpload: false,
-                  maxLength: 1,
-                  maxSize: 1024 * 300,
-                  width: 200,
-                  height: 200,
-                  crop: {
-                    aspectRatio: 1,
-                  },
+                  name: 'file',
+                  reciever: {
+                    method: 'POST',
+                    url: 'http://localhost:5000/api/backendManage/admin/uploadImg'
+                  }
+                  // autoUpload: true,
+                  // maxLength: 1,
+                  // maxSize: 1024 * 300,
+                  // width: 200,
+                  // height: 200,
+                  // crop: {
+                  //   aspectRatio: 1,
+                  // },
+                },
+                {
+                  type: 'button',
+                  actionType: 'dialog',
+                  label: '上传图片',
+                  dialog: {
+                    type: 'page',
+                    body: {
+                      type: 'html',
+                      html: `
+                        <form method="post" action="http://localhost:5000/api/backendManage/admin/uploadImg" enctype="multipart/form-data">
+                        <input type="file" size="30" name="file"/>
+                        <input type="submit" value="提交信息" class="button-new" style="margin-top:15px;"/>
+                        </form>
+                        `
+                    }
+                  }
                 },
                 {
                   type: 'static',
