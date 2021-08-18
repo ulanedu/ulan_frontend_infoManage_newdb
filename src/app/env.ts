@@ -10,15 +10,15 @@ export const env = {
   default: {
     disableLimit: false,
     domains: {
-      api: 'http://youlanedu.com:5000', // api 地址
+      api: 'http://youlanedu.com:5000',
     },
   },
   // 本地开发
   localhost: {
     disableLimit: false,
     domains: {
-      // api: 'http://youlanedu.com:5000',
-      api: 'http://localhost:5000',
+      api: 'https://api.youlanedu.com',
+      // api: 'http://localhost:5000',
     },
     // 日志配置
     logger: {
@@ -29,14 +29,14 @@ export const env = {
   // 测试环境
   staging: {
     domains: {
-      api: 'http://youlanedu.com:5000',
+      api: 'https://api.youlanedu.com',
     },
   },
   // 生产环境
   production: {
     isProd: true, // 标示是生产环境
     domains: {
-      api: 'http://youlanedu.com:5000',
+      api: 'https://api.youlanedu.com',
     },
   },
 }

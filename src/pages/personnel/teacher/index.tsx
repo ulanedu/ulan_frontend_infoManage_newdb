@@ -1,5 +1,7 @@
 import { getStore } from '@core/utils/store'
+
 import { storeKeys } from '../../../app/constants'
+
 export const schema = {
   'type': 'page',
   'title': '师资管理',
@@ -16,7 +18,7 @@ export const schema = {
           'headerToolbar': [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           'affixHeader': true,
           'columnsTogglable': 'auto',
@@ -354,7 +356,7 @@ export const schema = {
           'headerToolbar': [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           'affixHeader': true,
           'columnsTogglable': 'auto',

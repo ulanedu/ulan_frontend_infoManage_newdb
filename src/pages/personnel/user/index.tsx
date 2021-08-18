@@ -14,7 +14,7 @@ export const schema = {
           'headerToolbar': [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           'columns': [
             {
@@ -172,8 +172,8 @@ export const schema = {
                       'actionType': 'dialog',
                       'dialog': {
                         'title': '用户订单',
-                        "size": "lg",
-                        "actions": [],
+                        'size': 'lg',
+                        'actions': [],
                         'body': {
                           'type': 'crud',
                           'syncLocation': false,
@@ -433,7 +433,7 @@ export const schema = {
           'headerToolbar': [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           'columns': [
             {
@@ -591,8 +591,8 @@ export const schema = {
                       'actionType': 'dialog',
                       'dialog': {
                         'title': '订单详情',
-                        "size": "lg",
-                        "actions": [],
+                        'size': 'lg',
+                        'actions': [],
                         'body': {
                           'type': 'crud',
                           'syncLocation': false,

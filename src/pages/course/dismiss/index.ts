@@ -1,4 +1,5 @@
 import { getStore } from '@core/utils/store'
+
 import { storeKeys } from '../../../app/constants'
 
 export const schema = {
@@ -20,7 +21,7 @@ export const schema = {
           'headerToolbar': [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           'columns': [
             {
@@ -317,7 +318,7 @@ export const schema = {
           'headerToolbar': [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           'columns': [
             {
@@ -612,7 +613,7 @@ export const schema = {
           'headerToolbar': [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           'columns': [
             {

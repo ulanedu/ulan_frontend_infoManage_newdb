@@ -18,14 +18,14 @@ export const getActionAddrData = (transOptions?: boolean) => {
   const actionAddrData = getActionAddrMap()
 
   // 自定义 API 默认都有权限
-  map(apis, ({ url, actionDesc }) => {
+  map(apis, ({ url }) => {
     if (url.indexOf('GET ') === -1) {
-      actionAddrData[url] = {
-        actionDesc,
-        api: url,
-        label: actionDesc,
-        auth: true,
-      }
+      // actionAddrData[url] = {
+      //   actionDesc,
+      //   api: url,
+      //   label: actionDesc,
+      //   auth: true,
+      // }
     }
   })
 

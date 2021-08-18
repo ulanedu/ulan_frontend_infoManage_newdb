@@ -66,44 +66,44 @@ export const menuRoutes: LimitMenuItem = {
         }
       ]
     },
-    {
-      label: '页面编辑',
-      icon: 'fa fa-coffee',
-      nodePath: 'start',
-    },
-    {
-      label: 'DEMO应用',
-      icon: 'fa fa-paint-brush',
-      nodePath: 'application',
-      children: [
-        {
-          label: '热更新管理',
-          nodePath: 'hot', // 对应 src/pages/application/hot
-        },
-        {
-          label: '文档管理',
-          nodePath: 'doc', // 对应 src/pages/application/doc
-        },
-      ],
-    },
-    {
-      label: '系统管理',
-      icon: 'fa fa-wrench',
-      nodePath: 'system',
-      children: [
-        {
-          label: '管理员用户',
-          nodePath: 'user_list', // 对应 src/pages/system/user_list
-        },
-        {
-          label: '管理员角色',
-          nodePath: 'user_role', // 对应 src/pages/system/user_role
-        },
-        {
-          label: '系统操作日志',
-          nodePath: 'user_log', // 对应 src/pages/system/user_log
-        },
-      ],
-    },
+    // {
+    //   label: '页面编辑',
+    //   icon: 'fa fa-coffee',
+    //   nodePath: 'start',
+    // },
+    // {
+    //   label: 'DEMO应用',
+    //   icon: 'fa fa-paint-brush',
+    //   nodePath: 'application',
+    //   children: [
+    //     {
+    //       label: '热更新管理',
+    //       nodePath: 'hot', // 对应 src/pages/application/hot
+    //     },
+    //     {
+    //       label: '文档管理',
+    //       nodePath: 'doc', // 对应 src/pages/application/doc
+    //     },
+    //   ],
+    // },
+    // {
+    //   label: '系统管理',
+    //   icon: 'fa fa-wrench',
+    //   nodePath: 'system',
+    //   children: [
+    //     {
+    //       label: '管理员用户',
+    //       nodePath: 'user_list', // 对应 src/pages/system/user_list
+    //     },
+    //     {
+    //       label: '管理员角色',
+    //       nodePath: 'user_role', // 对应 src/pages/system/user_role
+    //     },
+    //     {
+    //       label: '系统操作日志',
+    //       nodePath: 'user_log', // 对应 src/pages/system/user_log
+    //     },
+    //   ],
+    // },
   ],
 }

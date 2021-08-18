@@ -31,10 +31,10 @@ export const schema = {
         onSuccess: (source) => {
           const { code, msg, data } = source
           if (code === 0) {
-            setStore(storeKeys.auth, data)
+            setStore(storeKeys.token, data)
             source.msg = '您已登录登录本系统'
           } else {
-            clearStore(storeKeys.auth)
+            clearStore(storeKeys.token)
             source.msg = msg || '注册异常'
           }
           return source

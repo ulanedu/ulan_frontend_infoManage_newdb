@@ -13,7 +13,7 @@ import { clearStore, getStore } from '@core/utils/store'
 import { apis } from './common/apis'
 import { storeKeys } from './constants'
 
-let userInfo: any = {}
+const userInfo: any = {}
 
 /**
  * 系统登录的鉴权方法。返回值 true: 用户通过登陆认证。 false：不通过登陆认证，需要重新登录。

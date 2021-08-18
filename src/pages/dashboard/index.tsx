@@ -78,11 +78,11 @@ export const schema = {
                   $preset: 'forms.tabRainFilter',
                 },
                 {
-                  type: "chart",
+                  type: 'chart',
                   lg: 7,
-                  trackExpression: "${dailyincome}",
-                  height: "7cm",
-                  width: "15cm",
+                  trackExpression: '${dailyincome}',
+                  height: '7cm',
+                  width: '15cm',
                   config: {
                     title: {
                       text: '优兰收入概况',
@@ -93,13 +93,13 @@ export const schema = {
                       trigger: 'axis'
                     },
                     xAxis: {
-                      type: "category",
-                      data: "${date}"
+                      type: 'category',
+                      data: '${date}'
                     },
                     yAxis: {
-                      type: "value",
+                      type: 'value',
                       axisLabel: {
-                        formatter: "{value} W"
+                        formatter: '{value} W'
                       },
                       axisPointer: {
                         snap: true
@@ -107,10 +107,10 @@ export const schema = {
                     },
                     series: [
                       {
-                        name: "日收入",
-                        type: "line",
+                        name: '日收入',
+                        type: 'line',
                         smooth: true,
-                        data: "${dailyincome}"
+                        data: '${dailyincome}'
                       }
                     ]
                   }
@@ -124,7 +124,7 @@ export const schema = {
                   // source: "items",
                   headerToolbar: [
                     'pagination',
-                    "statistics",
+                    'statistics',
                     'switch-per-page'
                   ],
                   columns: [

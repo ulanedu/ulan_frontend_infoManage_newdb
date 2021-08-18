@@ -1,5 +1,7 @@
 import { getStore } from '@core/utils/store'
+
 import { storeKeys } from '../../../app/constants'
+
 export const schema = {
   type: 'page',
   title: '工资报销',
@@ -25,12 +27,12 @@ export const schema = {
               'type': 'group',
               'controls': [
                 {
-                  "label": "选择对象",
-                  "type": "select",
-                  "name": "adminId",
-                  "searchable": true,
+                  'label': '选择对象',
+                  'type': 'select',
+                  'name': 'adminId',
+                  'searchable': true,
                   'required': true,
-                  "source": "${Admins}"
+                  'source': '${Admins}'
                 },
                 {
                   'type': 'number',
@@ -69,7 +71,7 @@ export const schema = {
           headerToolbar: [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           columns: [
             {
@@ -115,8 +117,8 @@ export const schema = {
                       actionType: 'dialog',
                       dialog: {
                         'title': '工资明细',
-                        "size": "lg",
-                        "actions": [],
+                        'size': 'lg',
+                        'actions': [],
                         'body': {
                           'type': 'crud',
                           'syncLocation': false,
@@ -246,7 +248,7 @@ export const schema = {
               ],
             },
             'pagination',
-            "statistics"
+            'statistics'
           ],
           columns: [
             {
@@ -297,8 +299,8 @@ export const schema = {
               name: 'remark',
               label: '备注',
               quickEdit: {
-                "saveImmediately": {
-                  "api": "POST /api/backendManage/financial/payroll/updateRemark"
+                'saveImmediately': {
+                  'api': 'POST /api/backendManage/financial/payroll/updateRemark'
                 }
               }
             },
@@ -316,7 +318,7 @@ export const schema = {
                       actionType: 'dialog',
                       dialog: {
                         'title': '工资明细',
-                        "actions": [],
+                        'actions': [],
                         'body': {
                           'type': 'crud',
                           'syncLocation': false,
@@ -361,11 +363,11 @@ export const schema = {
                     },
                     {
                       type: 'button',
-                      label: '删除',
+                      label: '撤销',
                       level: 'danger',
                       actionType: 'ajax',
-                      confirmText: '您确认要删除?',
-                      api: '/api/v2/billsdelete/$bills_status'
+                      confirmText: '您确认要撤销该条记录吗?',
+                      api: '/api/backendManage/financial/payroll/cancelPayroll/$prid'
                     }
                   ]
                 }

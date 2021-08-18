@@ -23,19 +23,19 @@ export const schema = {
           },
           'controls': [
             {
-              "name": "class",
-              "type": "radios",
-              "label": "课程类型",
+              'name': 'class',
+              'type': 'radios',
+              'label': '课程类型',
               'required': true,
               'inline': true,
-              "options": [
+              'options': [
                 {
-                  "label": "订单课(需要教员投递)",
-                  "value": "订单课"
+                  'label': '订单课(需要教员投递)',
+                  'value': '订单课'
                 },
                 {
-                  "label": "预约课(手动分配教员)",
-                  "value": "预约课"
+                  'label': '预约课(手动分配教员)',
+                  'value': '预约课'
                 }
               ]
             },
@@ -43,12 +43,12 @@ export const schema = {
               'type': 'group',
               'controls': [
                 {
-                  "label": "选择用户",
-                  "type": "select",
-                  "name": "userId",
-                  "searchable": true,
+                  'label': '选择用户',
+                  'type': 'select',
+                  'name': 'userId',
+                  'searchable': true,
                   'required': true,
-                  "source": "${Users}"
+                  'source': '${Users}'
                 }
               ]
             },
@@ -57,12 +57,12 @@ export const schema = {
               'hiddenOn': 'this.class == \'订单课\'',
               'controls': [
                 {
-                  "label": "选择教员",
-                  "type": "select",
-                  "name": "teacherId",
-                  "searchable": true,
+                  'label': '选择教员',
+                  'type': 'select',
+                  'name': 'teacherId',
+                  'searchable': true,
                   'required': true,
-                  "source": "${Teachers}"
+                  'source': '${Teachers}'
                 }
               ]
             },
@@ -108,7 +108,7 @@ export const schema = {
                   'name': 'subject',
                   'label': '补习科目',
                   'required': true,
-                  "multiple": true,
+                  'multiple': true,
                   'options': [
                     {
                       'label': '语文',
@@ -267,14 +267,14 @@ export const schema = {
               'label': '创建时间',
             },
             {
-              "name": "showStatus",
-              "label": '展示状态',
-              "quickEdit": {
-                "mode": "inline",
-                "saveImmediately": {
-                  "api": "POST /api/backendManage/course/tutor/updateCourseShowStatus/$cid"
+              'name': 'showStatus',
+              'label': '展示状态',
+              'quickEdit': {
+                'mode': 'inline',
+                'saveImmediately': {
+                  'api': 'POST /api/backendManage/course/tutor/updateCourseShowStatus/$cid'
                 },
-                "type": "switch",
+                'type': 'switch',
                 'trueValue': 1,
                 'falseValue': 0
               }
@@ -287,7 +287,7 @@ export const schema = {
                 [
                   {
                     'type': 'button-group',
-                    "buttons": [
+                    'buttons': [
                       {
                         'type': 'button',
                         'label': '详情',
@@ -669,7 +669,7 @@ export const schema = {
                                     'name': 'subject',
                                     'label': '补习科目',
                                     'required': true,
-                                    "multiple": true,
+                                    'multiple': true,
                                     'options': [
                                       {
                                         'label': '语文',
@@ -790,7 +790,7 @@ export const schema = {
           headerToolbar: [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           columns: [
             {
@@ -1231,7 +1231,7 @@ export const schema = {
                                   'name': 'subject',
                                   'label': '补习科目',
                                   'required': true,
-                                  "multiple": true,
+                                  'multiple': true,
                                   'options': [
                                     {
                                       'label': '语文',
@@ -1349,7 +1349,7 @@ export const schema = {
           headerToolbar: [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           columns: [
             {
@@ -1532,7 +1532,7 @@ export const schema = {
           headerToolbar: [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           columns: [
             {
@@ -1705,7 +1705,7 @@ export const schema = {
           headerToolbar: [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           columns: [
             {

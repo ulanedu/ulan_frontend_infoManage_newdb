@@ -3,11 +3,13 @@
  */
 
 import { css, DefaultTheme } from 'styled-components'
-import { getStore } from '@core/utils/store'
-import { storeKeys } from '../constants'
+
 import { ellipsis } from '@core/styled/utils'
+import { getStore } from '@core/utils/store'
 
 import { apis } from '../common/apis'
+import { storeKeys } from '../constants'
+
 import { logout } from '../user'
 
 export const itemUserSchema = {

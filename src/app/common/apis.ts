@@ -2,11 +2,12 @@
  * 定义需要的 api
  */
 
-import mockSource from './mock'
-import { publish } from '@ovine/core/lib/utils/message'
 import { getStore, setStore, clearStore } from '@core/utils/store'
 import { setAppLimits } from '@ovine/core/lib/routes/limit/exports'
+import { publish } from '@ovine/core/lib/utils/message'
+
 import { storeKeys, msgKeys } from '../constants'
+import mockSource from './mock'
 
 export const apis = {
   selfLogin: {
@@ -20,7 +21,7 @@ export const apis = {
         setStore(storeKeys.token, data.token)
         setAppLimits('*')
         // 为了更新页面获取到的token
-        location.reload()
+        window.location.reload()
         source.msg = '您已登录登录本系统'
       } else {
         clearStore(storeKeys.token)
@@ -61,7 +62,7 @@ export const apis = {
         source.msg = msg
       } else {
         source.msg = msg || '获取异常'
-        location.reload()
+        window.location.reload()
       }
       return source
     },

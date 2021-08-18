@@ -14,7 +14,7 @@ export const schema = {
           'headerToolbar': [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           'columns': [
             {
@@ -249,7 +249,7 @@ export const schema = {
           'headerToolbar': [
             'export-excel',
             'pagination',
-            "statistics"
+            'statistics'
           ],
           'columns': [
             {
