@@ -48,12 +48,17 @@ export const schema = {
               'label': '消课课时'
             },
             {
+              'name': 'startTime',
+              'label': '开始时间'
+            },
+            {
               'name': 'userReviewStatus',
               'label': '用户审核状态',
               'type': 'mapping',
               'map': {
-                0: '未通过',
-                1: '已通过'
+                0: '审核中',
+                1: '已通过',
+                2: '未通过'
               },
             },
             {
@@ -345,12 +350,17 @@ export const schema = {
               'label': '消课课时'
             },
             {
+              'name': 'startTime',
+              'label': '开始时间'
+            },
+            {
               'name': 'userReviewStatus',
               'label': '用户审核状态',
               'type': 'mapping',
               'map': {
-                0: '未通过',
-                1: '已通过'
+                0: '审核中',
+                1: '已通过',
+                2: '未通过'
               },
             },
             {
@@ -640,12 +650,17 @@ export const schema = {
               'label': '消课课时'
             },
             {
+              'name': 'startTime',
+              'label': '开始时间'
+            },
+            {
               'name': 'userReviewStatus',
               'label': '用户审核状态',
               'type': 'mapping',
               'map': {
-                0: '未通过',
-                1: '已通过'
+                0: '审核中',
+                1: '已通过',
+                2: '未通过'
               },
             },
             {
